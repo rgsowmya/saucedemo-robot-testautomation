@@ -1,0 +1,11 @@
+robotframework
+selenium
+robotframework-seleniumlibrary
+robotframework-requests
+webdriver-browser
+webdriver-manager
+webdriver-installer
+chromedriver-py
+chromedm
+robotframework-pythonlibcore
+robotframework-request
