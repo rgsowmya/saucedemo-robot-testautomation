@@ -7,16 +7,6 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Ignore test results and logs
-*output.xml
-*log.html
-*report.html
-*.log
-
-# Ignore Robot Framework's temporary files
-*.robot.*
-*.xml
-
 # Ignore IDE or OS-specific files
 .vscode/
 .idea/
