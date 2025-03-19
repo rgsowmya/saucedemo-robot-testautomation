@@ -9,3 +9,4 @@ chromedriver-py
 chromedm
 robotframework-pythonlibcore
 robotframework-request
+robotframework-tidy

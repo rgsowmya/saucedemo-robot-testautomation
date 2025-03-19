@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Run robotidy
+robotidy suites
+
 # Run login tests
 robot --output results/login_output.xml --log results/login_log.html --report results/login_report.html suites/login.robot
 

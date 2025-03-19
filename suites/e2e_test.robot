@@ -1,16 +1,18 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library     SeleniumLibrary
 Resource    ../keywords/keywords.robot
 
+
 *** Variables ***
-${CHECKOUT_BTN}  checkout
-${POSTAL_CODE_TXT}    id=postal-code
-${CONTINUE_BTN}    id=continue
-${PRODUCT_1_PRICE}    xpath://div[@class='inventory_item_price'][1]
-${PRODUCT_2_PRICE}    xpath://div[@class='inventory_item_price'][normalize-space()='$7.99']
-${CART_TOTAL}    17.98
-${FINISH_BTN}    id=finish
-${BACK_HOME_BTN}    id=back-to-products
+${CHECKOUT_BTN}         checkout
+${POSTAL_CODE_TXT}      id=postal-code
+${CONTINUE_BTN}         id=continue
+${PRODUCT_1_PRICE}      xpath://div[@class='inventory_item_price'][1]
+${PRODUCT_2_PRICE}      xpath://div[@class='inventory_item_price'][normalize-space()='$7.99']
+${CART_TOTAL}           17.98
+${FINISH_BTN}           id=finish
+${BACK_HOME_BTN}        id=back-to-products
+
 
 *** Test Cases ***
 Happy path e2e test
@@ -25,6 +27,7 @@ Happy path e2e test
     Back to Home page
     Logout SauceDemo
     Close Browser
+
 
 *** Keywords ***
 Checkout the added items
@@ -42,7 +45,7 @@ Pay and close the order
     # Verify the added items again in the checkout overview page
     Click Button    ${CONTINUE_BTN}
     Wait Until Page Contains    Checkout: Overview    5s
-    Scroll Element Into View    ${FINISH_BTN}    #scroll to the bottom
+    Scroll Element Into View    ${FINISH_BTN}    # scroll to the bottom
 
 Calculate Total Price
     # Get price of product 1
@@ -56,8 +59,7 @@ Calculate Total Price
 
     # Calculate the total price
     ${calculated_total}    Evaluate    ${price_1} + ${price_2}
-    [Return]    ${calculated_total}
-
+    RETURN    ${calculated_total}
 
 Verify Cart Total
     ${calculated_total}    Calculate Total Price
@@ -71,6 +73,6 @@ Verify Cart Total
 Back to Home page
     # Go back to the home page
     Element Should Be Visible    ${BACK_HOME_BTN}    Back Home button is not visible
-    Click Button   ${BACK_HOME_BTN}
+    Click Button    ${BACK_HOME_BTN}
     Wait Until Page Contains    Products    5s
     Capture Page Screenshot    ../results/screenshots/e2e_test/product_page.png
